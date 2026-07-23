@@ -39,6 +39,11 @@ public class LevelManager : MonoBehaviour
         GameObject ball = Instantiate(ballPrefab, ballSpawnPos, Quaternion.identity);
         CameraFollow.instance.SetTarget(ball);                      //set the camera target
         GameManager.singleton.gameStatus = GameStatus.Playing;      //set the game status to playing
+
+        //modulos didaticos de CG: reaplicar luz/shading na fase recriada
+        LightingPresetController.NotifyLevelSpawned();
+        ShadingModelController.NotifyLevelSpawned();
+        DebugViewController.NotifyLevelSpawned();
     }
 
     /// <summary>

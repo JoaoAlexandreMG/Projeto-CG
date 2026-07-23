@@ -18,6 +18,8 @@ public class InputManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !canRotate)          //if mouse button is clicked and canRotate is false
         {
+            if (CGMenuGuard.PointerIsOverMenu()) return;        //clique em cima do menu didatico: nao mexe camera/bola
+
             GetDistance();                                      //get the distance between mouseClick point and ball
             canRotate = true;                                   //set canRotate to true
 
